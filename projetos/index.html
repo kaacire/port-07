@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projetos — Kacire</title>
+  <meta name="description" content="Projetos pessoais: ARGOS e IA Antivírus, com progresso, notas de desenvolvimento e atualizações.">
+  <meta name="theme-color" content="#050507">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%238b5cf6' d='M50 0 60 40 100 50 60 60 50 100 40 60 0 50 40 40Z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/motion.css">
+</head>
+<body data-root="../">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="stars" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Kacire — página inicial">
+        <span class="star" aria-hidden="true"></span> KACIRE
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">
+        <span>Menu</span>
+        <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+      <nav class="nav" id="nav" aria-label="Principal">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="../#inicio">Início</a></li>
+          <li><a class="nav-link" href="../#servicos">Serviços</a></li>
+          <li><a class="nav-link" href="../#demonstracoes">Demonstrações</a></li>
+          <li><a class="nav-link" href="./" aria-current="page">Projetos</a></li>
+          <li><a class="nav-link" href="../#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="bg-slot" data-bg="paginaProjetos" aria-hidden="true"></div>
+      <div class="section-inner">
+        <p class="eyebrow reveal">Projetos pessoais</p>
+        <h1 id="page-title" class="reveal" style="--reveal-delay:.12s">ARGOS <span class="grad-text">&amp;</span> IA Antivírus</h1>
+        <p class="reveal" style="--reveal-delay:.24s">Escolha um projeto para ver o progresso, as notas de desenvolvimento, as atualizações e as imagens.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Projetos">
+      <div class="section-inner">
+        <div id="proj-tabs" class="proj-tabs reveal" role="tablist" aria-label="Projetos"></div>
+        <div id="proj-panels"></div>
+        <noscript><p class="empty-note">Ative o JavaScript para ver os painéis dos projetos.</p></noscript>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© <span data-year>2026</span> Kacire</span>
+      <a href="../">Voltar ao início</a>
+      <a href="../#contato">Contato</a>
+    </div>
+  </footer>
+
+  <script src="../js/config.js" defer></script>
+  <script src="../js/data/projects-data.js" defer></script>
+  <script src="../js/modules/core.js" defer></script>
+  <script src="../js/modules/stars.js" defer></script>
+  <script src="../js/modules/nav.js" defer></script>
+  <script src="../js/modules/transition.js" defer></script>
+  <script src="../js/modules/backgrounds.js" defer></script>
+  <script src="../js/modules/contact.js" defer></script>
+  <script src="../js/modules/projects.js" defer></script>
+  <script src="../js/modules/motion.js" defer></script>
+  <script src="../js/modules/lightbox.js" defer></script>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

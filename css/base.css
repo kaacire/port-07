@@ -1,0 +1,142 @@
+/* ==========================================================
+   Kacire — base: tokens, reset, tipografia, acessibilidade
+   ========================================================== */
+:root {
+  --bg: #050507;
+  --bg-2: #0b0b10;
+  --fg: #f4f4f7;
+  --muted: #9393a3;
+  --line: rgba(255, 255, 255, 0.16);
+  --blue: #3b82ff;
+  --purple: #8b5cf6;
+  --red: #ff3b4e;
+  --grad: linear-gradient(90deg, var(--blue), var(--purple), var(--red));
+  /* Parágrafos/corpo: igual ao repositório de referência (Space Grotesk). Títulos mantêm a pilha anterior. */
+  --font: "Space Grotesk", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --header-h: 64px;
+  --gutter: clamp(20px, 5vw, 64px);
+  --maxw: 1200px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-padding-top: calc(var(--header-h) + 12px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  animation: page-in 0.5s var(--ease) both;
+}
+
+body.is-leaving { opacity: 0; transition: opacity 0.22s ease; }
+
+@keyframes page-in { from { opacity: 0; } to { opacity: 1; } }
+
+img, svg, canvas { display: block; max-width: 100%; }
+h1, h2, h3, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+
+h1, h2, h3 { font-family: var(--font-heading); line-height: 1.1; letter-spacing: 0.02em; text-transform: uppercase; font-weight: 800; }
+h1 { font-size: clamp(2.2rem, 7vw, 4.6rem); }
+h2 { font-size: clamp(1.5rem, 3.6vw, 2.4rem); }
+h3 { font-size: clamp(1.05rem, 2vw, 1.35rem); letter-spacing: 0.06em; }
+
+.muted { color: var(--muted); }
+
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: fixed; left: 12px; top: -60px; z-index: 200;
+  background: var(--fg); color: var(--bg);
+  padding: 10px 16px; font-weight: 700; text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 12px; }
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Estrelas de quatro pontas (fundo) ---------- */
+.stars {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none; overflow: hidden;
+}
+.star {
+  position: absolute;
+  width: var(--s, 12px); height: var(--s, 12px);
+  background: var(--c, #fff);
+  opacity: var(--o, 0.25);
+  clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+  animation: twinkle var(--d, 6s) ease-in-out var(--delay, 0s) infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: calc(var(--o, 0.25) * 0.4); transform: scale(0.85); }
+  50% { opacity: var(--o, 0.25); transform: scale(1.1); }
+}
+
+main, .site-header, .site-footer { position: relative; z-index: 1; }
+
+/* ---------- Espaços para imagens de fundo (vazios por padrão) ----------
+   Cada seção tem um <div class="bg-slot" data-bg="..."> que não mostra nada
+   até você informar uma imagem em js/config.js (campo "backgrounds"). */
+.bg-slot {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-position: center; background-size: cover; background-repeat: no-repeat;
+}
+.bg-slot.has-image { background-image: var(--bg-image); }
+.bg-slot.has-image::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5, 5, 7, 0.92) 0%, rgba(5, 5, 7, 0.7) 45%, rgba(5, 5, 7, 0.45) 100%),
+    linear-gradient(180deg, rgba(5, 5, 7, 0.35) 0%, rgba(5, 5, 7, 0.85) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .star { animation: none; opacity: var(--o, 0.25); }
+}
