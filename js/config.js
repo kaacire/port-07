@@ -6,7 +6,7 @@ window.Kacire = window.Kacire || {};
 
 window.Kacire.config = {
   // Perfil informado: "kaciree"
-  instagram: "kaciree",
+  instagram: "kaaciree",
 
   // Preencha para ativar os botões de contato correspondentes.
   // WhatsApp: somente dígitos com DDI+DDD, ex.: "5574999999999"
