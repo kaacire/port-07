@@ -18,7 +18,7 @@ window.Kacire.config = {
   // Vazio = a imagem aparece com o aviso "Link em breve" e não leva a lugar nenhum.
   // Se um campo daqui estiver vazio, o site usa o link do mesmo nome em "demos".
   services: {
-    landing: "",
+    landing: "https://kaedsonlavagens.netlify.app/",
     institucional: "",
     agendamento: ""
   },
@@ -26,9 +26,10 @@ window.Kacire.config = {
   // Seção "Demonstrações": links públicos (use https://...).
   // Vazio = mostra "link em breve" (sem botão).
   demos: {
-    landing: "",
-    institucional: "",
-    agendamento: ""
+    landing: "https://kaacire.github.io/Patas-Prosa/?animal=cachorro",
+    landing2: "",
+    institucional: "https://kaacire.github.io/Aurora-Imoveis/",
+    agendamento: "https://kaacire.github.io/CasGrande/"
   },
 
   // Imagens de fundo por seção. Vazio = nenhum fundo (o espaço fica reservado, sem placeholder).
